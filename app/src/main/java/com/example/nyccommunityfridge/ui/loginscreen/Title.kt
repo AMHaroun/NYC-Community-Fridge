@@ -6,8 +6,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.nyccommunityfridge.R
 import com.example.nyccommunityfridge.ui.theme.NYCCommunityFridgeTheme
 
 @Composable
@@ -25,12 +27,12 @@ fun Title(
             color = MaterialTheme.colorScheme.onPrimary
         )
         Text(
-            text = "Community",
+            text = stringResource(R.string.community),
             style = MaterialTheme.typography.displayMedium,
             color = MaterialTheme.colorScheme.onPrimary
         )
         Text(
-            text = "Fridge",
+            text = stringResource(R.string.fridge),
             style = MaterialTheme.typography.displaySmall,
             color = MaterialTheme.colorScheme.onPrimary,
             fontWeight = FontWeight.Bold
