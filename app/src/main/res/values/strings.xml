@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">NYC Community Fridge</string>
+    <string name="nyc_community_fridges_logo">NYC Community Fridges logo</string>
 </resources>
