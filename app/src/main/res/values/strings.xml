@@ -3,4 +3,5 @@
     <string name="nyc_community_fridges_logo">NYC Community Fridges logo</string>
     <string name="community">Community</string>
     <string name="fridge">Fridge</string>
+    <string name="description">Find community run refrigerators stocked with food for the needy</string>
 </resources>
