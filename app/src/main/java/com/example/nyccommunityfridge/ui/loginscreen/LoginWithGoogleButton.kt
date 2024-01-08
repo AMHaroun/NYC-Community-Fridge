@@ -8,11 +8,11 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -32,7 +32,7 @@ fun LoginWithGoogleButton(
        ),
        onClick = { onClick() },
        colors = ButtonDefaults.buttonColors(
-           containerColor = MaterialTheme.colorScheme.onPrimary
+           containerColor = Color.White
        ),
        modifier = modifier
    ) {
@@ -54,7 +54,7 @@ fun LoginWithGoogleButton(
            Text(
                text = stringResource(R.string.login_with_google),
                modifier = Modifier.weight(2f),
-               color = MaterialTheme.colorScheme.onPrimaryContainer
+               color = Color.Black
            )
        }
    }
