@@ -54,6 +54,9 @@ dependencies {
 
     val firebaseBomVersion = "32.7.0"
 
+
+
+    implementation("com.google.firebase:firebase-auth")
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
     implementation("androidx.activity:activity-compose:1.8.2")
@@ -63,7 +66,7 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
     implementation(platform("com.google.firebase:firebase-bom:$firebaseBomVersion"))
-
+    implementation("com.google.firebase:firebase-auth")
 
 
 
