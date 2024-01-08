@@ -1,21 +1,29 @@
 package com.example.nyccommunityfridge.ui.loginscreen
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.nyccommunityfridge.R
 import com.example.nyccommunityfridge.ui.theme.NYCCommunityFridgeTheme
 
 @Composable
 fun LoginScreen(
+    loginWithGoogle: ()->Unit,
+    loginWithFacebook: ()->Unit,
+    skipLogin: ()->Unit,
     modifier: Modifier = Modifier
 ){
     Column(
@@ -37,6 +45,31 @@ fun LoginScreen(
             )
         )
 
+        LoginWithGoogleButton(
+            modifier = Modifier
+                .padding(
+                start = 32.dp,
+                end = 32.dp,
+                top = 32.dp,
+                bottom = 16.dp
+            ),
+            onClick = { loginWithGoogle() }
+        )
+        LoginWithFacebookButton(
+            modifier = Modifier.padding(
+                horizontal = 32.dp
+            ),
+            onClick = { loginWithFacebook() }
+        )
+
+        Text(
+            text = stringResource(R.string.skip_login),
+            textDecoration = TextDecoration.Underline,
+            color = MaterialTheme.colorScheme.onPrimary,
+            modifier = Modifier
+                .padding(32.dp)
+                .clickable { skipLogin() }
+        )
     }
 
 }
@@ -46,6 +79,9 @@ fun LoginScreen(
 fun LoginScreenPreview(){
     NYCCommunityFridgeTheme {
         LoginScreen(
+            loginWithGoogle = {},
+            loginWithFacebook = {},
+            skipLogin = {},
             modifier = Modifier.background(MaterialTheme.colorScheme.primary)
         )
     }
