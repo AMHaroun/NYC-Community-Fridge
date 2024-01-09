@@ -24,7 +24,6 @@ import com.google.maps.android.compose.rememberCameraPositionState
 @Composable
 fun FridgeMapScreen(
     modifier: Modifier = Modifier,
-    communityFridges: List<CommunityFridge>
 ){
     val newYork = LatLng(40.7128, -74.0060)
     val cameraPositionState = rememberCameraPositionState{
@@ -37,13 +36,12 @@ fun FridgeMapScreen(
             modifier = Modifier.fillMaxSize(),
             cameraPositionState = cameraPositionState,
         ) {
-            for (fridge in communityFridges) {
-                Marker(
-                    state = MarkerState(position = fridge.position),
-                    title = fridge.name,
-                    flat = true,
-                )
-            }
+            //TODO Marker's for each community Fridge
+            Marker(
+                state = MarkerState(position = newYork),
+                title = "Fridge",
+                flat = true
+            )
 
         }
 
@@ -69,6 +67,6 @@ fun FridgeMapScreen(
 @Composable
 fun FridgeMapScreenPreview(){
     NYCCommunityFridgeTheme {
-        FridgeMapScreen(communityFridges = listOf())
+        FridgeMapScreen()
     }
 }
