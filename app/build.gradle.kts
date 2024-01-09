@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("com.google.gms.google-services")
+    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
 }
 
 android {
@@ -49,10 +50,21 @@ android {
         }
     }
 }
+secrets {
+
+    propertiesFileName = "secrets.properties"
+
+    defaultPropertiesFileName = "local.defaults.properties"
+
+    ignoreList.add("keyToIgnore") // Ignore the key "keyToIgnore"
+    ignoreList.add("sdk.*")       // Ignore all keys matching the regexp "sdk.*"
+}
+
 
 dependencies {
 
     val firebaseBomVersion = "32.7.0"
+    val mapsComposeVersion = "4.3.0"
 
 
 
@@ -67,6 +79,7 @@ dependencies {
     implementation("androidx.compose.material3:material3")
     implementation(platform("com.google.firebase:firebase-bom:$firebaseBomVersion"))
     implementation("com.google.firebase:firebase-auth")
+    implementation("com.google.maps.android:maps-compose:${mapsComposeVersion}")
 
 
 
