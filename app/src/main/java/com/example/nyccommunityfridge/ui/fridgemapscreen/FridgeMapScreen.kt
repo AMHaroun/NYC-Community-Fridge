@@ -56,6 +56,11 @@ fun FridgeMapScreen(
                 .padding(top = 16.dp, end = 16.dp)
                 .clickable { /*TODO Navigate to login or profile screen*/ }
         )
+
+        BottomSheet(
+            goToNearestCommunityFridge = { /*TODO*/ },
+            nearestCommunityFridgeAddress = "Fake Address"
+        )
     }
 
 }
