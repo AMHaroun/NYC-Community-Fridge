@@ -68,6 +68,7 @@ dependencies {
     val firebaseBomVersion = "32.7.0"
     val mapsComposeVersion = "4.3.0"
     val hiltVersion = "2.50"
+    val roomVersion = "2.6.1"
 
 
 
@@ -86,6 +87,8 @@ dependencies {
     implementation("com.google.maps.android:maps-compose:${mapsComposeVersion}")
     implementation("com.google.dagger:hilt-android:$hiltVersion")
     kapt("com.google.dagger:hilt-compiler:$hiltVersion")
+    implementation("androidx.room:room-runtime:$roomVersion")
+    kapt("androidx.room:room-compiler:$roomVersion")
 
 
 
