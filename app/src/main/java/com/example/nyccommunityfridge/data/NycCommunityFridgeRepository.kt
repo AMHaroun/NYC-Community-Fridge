@@ -10,7 +10,7 @@ interface NycCommunityFridgeRepository {
 
     suspend fun getLocalCommunityFridges(): Resource<Flow<List<com.example.nyccommunityfridge.data.local.room.entity.CommunityFridge>>>
 
-    suspend fun saveCommunityFridges(communityFridges: List<CommunityFridge>)
+    suspend fun saveCommunityFridges(communityFridges: List<com.example.nyccommunityfridge.data.local.room.entity.CommunityFridge>) : Resource<String>
 
     suspend fun checkForCommunityFridgeUpdates(): Resource<Boolean>
 

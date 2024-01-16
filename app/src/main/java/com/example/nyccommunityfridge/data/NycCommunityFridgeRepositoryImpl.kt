@@ -5,7 +5,6 @@ import com.example.nyccommunityfridge.data.local.room.dao.CommunityFridgeDao
 import com.example.nyccommunityfridge.model.CommunityFridge
 import com.example.nyccommunityfridge.util.Resource
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.toObject
 import com.google.firebase.firestore.toObjects
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.tasks.await
@@ -36,8 +35,17 @@ class NycCommunityFridgeRepositoryImpl(
         return Resource.Success(result)
     }
 
-    override suspend fun saveCommunityFridges(communityFridges: List<CommunityFridge>) {
-        // TODO: (not yet implemented)
+    override suspend fun saveCommunityFridges(communityFridges: List<com.example.nyccommunityfridge.data.local.room.entity.CommunityFridge>) : Resource<String> {
+        try {
+            for (fridge in communityFridges) {
+                localDatabaseDao.insertCommunityFridge(fridge)
+            }
+        } catch (e: Exception){
+            e.printStackTrace()
+            Log.d("DEBUG", "saveCommunityFridges() {${e.message}}")
+            return Resource.Error(message = "Could not save community fridges")
+        }
+        return Resource.Success(data = "Saved community fridges")
     }
 
     override suspend fun checkForCommunityFridgeUpdates(): Resource<Boolean> {
