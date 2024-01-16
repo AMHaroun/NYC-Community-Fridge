@@ -12,7 +12,7 @@ interface NycCommunityFridgeRepository {
 
     suspend fun saveCommunityFridges(communityFridges: List<CommunityFridge>)
 
-    suspend fun checkForCommunityFridgeUpdates(): Boolean
+    suspend fun checkForCommunityFridgeUpdates(): Resource<Boolean>
 
 
 }
