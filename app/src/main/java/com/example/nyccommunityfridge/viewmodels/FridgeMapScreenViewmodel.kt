@@ -12,4 +12,12 @@ sealed interface FridgeMapScreenUiState{
 
 @HiltViewModel
 class FridgeMapScreenViewmodel : ViewModel() {
+
+    fun getRemoteCommunityFridgeData(){
+        //TODO : Get Community Fridge data from firestore
+    }
+
+    fun getLocalCommunityFridgeData(){
+        //TODO: Get Community Fridge data from room
+    }
 }
