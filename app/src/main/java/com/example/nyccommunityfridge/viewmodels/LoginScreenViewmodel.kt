@@ -7,4 +7,8 @@ data class LoginScreenUiState(var loggedIn: Boolean)
 
 @HiltViewModel
 class LoginScreenViewmodel : ViewModel() {
+
+    fun isUserLoggedIn(){
+        //TODO
+    }
 }
