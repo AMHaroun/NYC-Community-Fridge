@@ -16,14 +16,17 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.nyccommunityfridge.R
 import com.example.nyccommunityfridge.ui.theme.NYCCommunityFridgeTheme
+import com.example.nyccommunityfridge.viewmodels.LoginScreenViewmodel
 
 @Composable
 fun LoginScreen(
     loginWithGoogle: ()->Unit,
     loginWithFacebook: ()->Unit,
     skipLogin: ()->Unit,
+    viewModel: LoginScreenViewmodel = hiltViewModel(),
     modifier: Modifier = Modifier
 ){
     Column(

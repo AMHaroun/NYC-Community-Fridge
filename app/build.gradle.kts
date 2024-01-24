@@ -69,6 +69,7 @@ dependencies {
     val mapsComposeVersion = "4.3.0"
     val hiltVersion = "2.50"
     val roomVersion = "2.6.1"
+    val hiltNavigationCompose = "1.1.0"
 
 
 
@@ -90,6 +91,7 @@ dependencies {
     implementation("androidx.room:room-ktx:$roomVersion")
     implementation("androidx.room:room-runtime:$roomVersion")
     kapt("androidx.room:room-compiler:$roomVersion")
+    implementation("androidx.hilt:hilt-navigation-compose:$hiltNavigationCompose")
 
 
 

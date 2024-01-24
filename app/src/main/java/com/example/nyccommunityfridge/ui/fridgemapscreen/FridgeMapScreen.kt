@@ -12,8 +12,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.nyccommunityfridge.R
 import com.example.nyccommunityfridge.ui.theme.NYCCommunityFridgeTheme
+import com.example.nyccommunityfridge.viewmodels.FridgeMapScreenViewmodel
 import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
 import com.google.maps.android.compose.GoogleMap
@@ -23,6 +25,7 @@ import com.google.maps.android.compose.rememberCameraPositionState
 
 @Composable
 fun FridgeMapScreen(
+    viewModel: FridgeMapScreenViewmodel = hiltViewModel(),
     modifier: Modifier = Modifier,
 ){
     val newYork = LatLng(40.7128, -74.0060)
