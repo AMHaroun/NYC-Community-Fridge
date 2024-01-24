@@ -29,7 +29,6 @@ class FridgeMapScreenViewmodel @Inject constructor(val repository: NycCommunityF
 
             when(result){
                 is Resource.Error -> { uiState = FridgeMapScreenUiState.Error(result.message)}
-                is Resource.Loading -> TODO()
                 is Resource.Success -> { uiState = FridgeMapScreenUiState.Success(result.data)}
             }
         }
