@@ -55,7 +55,13 @@ fun FridgeMapScreen(
                     )
                 }
             }
-
+            if (uiState is FridgeMapScreenUiState.Error){
+                Marker(
+                    state = MarkerState(position = newYork),
+                    title = "New York",
+                    flat = true
+                )
+            }
         }
 
         Icon(
