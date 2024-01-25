@@ -15,6 +15,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.nyccommunityfridge.R
 import com.example.nyccommunityfridge.ui.theme.NYCCommunityFridgeTheme
+import com.example.nyccommunityfridge.viewmodels.FridgeMapScreenUiState
 import com.example.nyccommunityfridge.viewmodels.FridgeMapScreenViewmodel
 import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
@@ -28,6 +29,9 @@ fun FridgeMapScreen(
     viewModel: FridgeMapScreenViewmodel = hiltViewModel(),
     modifier: Modifier = Modifier,
 ){
+
+    val uiState = viewModel.uiState
+
     val newYork = LatLng(40.7128, -74.0060)
     val cameraPositionState = rememberCameraPositionState{
         position = CameraPosition.fromLatLngZoom(newYork, 12f)
@@ -39,12 +43,18 @@ fun FridgeMapScreen(
             modifier = Modifier.fillMaxSize(),
             cameraPositionState = cameraPositionState,
         ) {
-            //TODO Marker's for each community Fridge
-            Marker(
-                state = MarkerState(position = newYork),
-                title = "Fridge",
-                flat = true
-            )
+            if(uiState is FridgeMapScreenUiState.Success) {
+                for (fridge in uiState.fridges) {
+
+                    val coordinates = LatLng(fridge.latitude, fridge.longitude)
+
+                    Marker(
+                        state = MarkerState(position = coordinates),
+                        title = "Fridge",
+                        flat = true
+                    )
+                }
+            }
 
         }
 
