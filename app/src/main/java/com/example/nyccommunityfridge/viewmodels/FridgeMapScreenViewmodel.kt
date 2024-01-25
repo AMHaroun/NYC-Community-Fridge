@@ -23,6 +23,14 @@ class FridgeMapScreenViewmodel @Inject constructor(val repository: NycCommunityF
 
     var uiState : FridgeMapScreenUiState by mutableStateOf(FridgeMapScreenUiState.Success(listOf()))
     private set
+
+    init {
+
+        getRemoteCommunityFridgeData()
+        if(uiState is FridgeMapScreenUiState.Error){
+            getLocalCommunityFridgeData()
+        }
+    }
     fun getRemoteCommunityFridgeData(){
         viewModelScope.launch {
             val result = repository.getRemoteCommunityFridges()
