@@ -13,6 +13,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.nyccommunityfridge.R
 import com.example.nyccommunityfridge.ui.theme.NYCCommunityFridgeTheme
 import com.example.nyccommunityfridge.viewmodels.FridgeMapScreenUiState
@@ -27,7 +29,8 @@ import com.google.maps.android.compose.rememberCameraPositionState
 @Composable
 fun FridgeMapScreen(
     viewModel: FridgeMapScreenViewmodel = hiltViewModel(),
-    modifier: Modifier = Modifier,
+    navController: NavController = rememberNavController(),
+    modifier: Modifier = Modifier
 ){
 
     val uiState = viewModel.uiState

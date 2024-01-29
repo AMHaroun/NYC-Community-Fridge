@@ -17,6 +17,8 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.nyccommunityfridge.R
 import com.example.nyccommunityfridge.ui.theme.NYCCommunityFridgeTheme
 import com.example.nyccommunityfridge.viewmodels.LoginScreenViewmodel
@@ -27,6 +29,7 @@ fun LoginScreen(
     loginWithFacebook: ()->Unit,
     skipLogin: ()->Unit,
     viewModel: LoginScreenViewmodel = hiltViewModel(),
+    navController: NavController = rememberNavController(),
     modifier: Modifier = Modifier
 ){
     Column(

@@ -23,11 +23,12 @@ fun NYCCommunityFridgeApp(
             LoginScreen(
                 loginWithGoogle = { /*TODO*/ },
                 loginWithFacebook = { /*TODO*/ },
-                skipLogin = { /*TODO*/ }
+                skipLogin = { /*TODO*/ },
+                navController = navController
             )
         }
         composable(NavigationStrings.fridgeMapScreen){
-            FridgeMapScreen()
+            FridgeMapScreen(navController = navController)
         }
     }
 }
