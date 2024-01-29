@@ -23,8 +23,6 @@ fun NYCCommunityFridgeApp(
             route = NavigationStrings.loginScreen,
             ){
             LoginScreen(
-                loginWithGoogle = { /*TODO*/ },
-                loginWithFacebook = { /*TODO*/ },
                 navController = navController
             )
         }
