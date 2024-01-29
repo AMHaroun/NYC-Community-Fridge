@@ -19,11 +19,12 @@ fun NYCCommunityFridgeApp(
         startDestination = NavigationStrings.fridgeMapScreen,
         modifier = modifier
     ){
-        composable(NavigationStrings.loginScreen){
+        composable(
+            route = NavigationStrings.loginScreen,
+            ){
             LoginScreen(
                 loginWithGoogle = { /*TODO*/ },
                 loginWithFacebook = { /*TODO*/ },
-                skipLogin = { /*TODO*/ },
                 navController = navController
             )
         }

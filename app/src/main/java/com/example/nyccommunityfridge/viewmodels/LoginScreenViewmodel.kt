@@ -12,4 +12,12 @@ class LoginScreenViewmodel @Inject constructor() : ViewModel() {
     fun isUserLoggedIn(){
         //TODO
     }
+
+    fun loginWithGoogle(){
+
+    }
+
+    fun loginWithFacebook(){
+
+    }
 }
