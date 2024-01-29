@@ -21,13 +21,13 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.nyccommunityfridge.R
 import com.example.nyccommunityfridge.ui.theme.NYCCommunityFridgeTheme
+import com.example.nyccommunityfridge.util.NavigationStrings
 import com.example.nyccommunityfridge.viewmodels.LoginScreenViewmodel
 
 @Composable
 fun LoginScreen(
     loginWithGoogle: ()->Unit,
     loginWithFacebook: ()->Unit,
-    skipLogin: ()->Unit,
     viewModel: LoginScreenViewmodel = hiltViewModel(),
     navController: NavController = rememberNavController(),
     modifier: Modifier = Modifier
@@ -74,7 +74,7 @@ fun LoginScreen(
             color = MaterialTheme.colorScheme.onPrimary,
             modifier = Modifier
                 .padding(32.dp)
-                .clickable { skipLogin() }
+                .clickable { navController.navigate(route = NavigationStrings.fridgeMapScreen) }
         )
     }
 
@@ -87,7 +87,6 @@ fun LoginScreenPreview(){
         LoginScreen(
             loginWithGoogle = {},
             loginWithFacebook = {},
-            skipLogin = {},
             modifier = Modifier.background(MaterialTheme.colorScheme.primary)
         )
     }

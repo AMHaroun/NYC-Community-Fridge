@@ -17,6 +17,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.nyccommunityfridge.R
 import com.example.nyccommunityfridge.ui.theme.NYCCommunityFridgeTheme
+import com.example.nyccommunityfridge.util.NavigationStrings
 import com.example.nyccommunityfridge.viewmodels.FridgeMapScreenUiState
 import com.example.nyccommunityfridge.viewmodels.FridgeMapScreenViewmodel
 import com.google.android.gms.maps.model.CameraPosition
@@ -74,7 +75,7 @@ fun FridgeMapScreen(
                 .align(Alignment.TopEnd)
                 .size(48.dp)
                 .padding(top = 16.dp, end = 16.dp)
-                .clickable { /*TODO Navigate to login or profile screen*/ }
+                .clickable { navController.navigate(route = NavigationStrings.loginScreen) }
         )
 
         BottomSheet(
