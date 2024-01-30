@@ -7,6 +7,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.nyccommunityfridge.ui.fridgemapscreen.FridgeMapScreen
 import com.example.nyccommunityfridge.ui.loginscreen.LoginScreen
+import com.example.nyccommunityfridge.ui.profilescreen.ProfileScreen
 import com.example.nyccommunityfridge.util.NavigationStrings
 
 @Composable
@@ -19,6 +20,7 @@ fun NYCCommunityFridgeApp(
         startDestination = NavigationStrings.fridgeMapScreen,
         modifier = modifier
     ){
+
         composable(
             route = NavigationStrings.loginScreen,
             ){
@@ -26,8 +28,14 @@ fun NYCCommunityFridgeApp(
                 navController = navController
             )
         }
+
         composable(NavigationStrings.fridgeMapScreen){
             FridgeMapScreen(navController = navController)
         }
+
+        composable(NavigationStrings.profileScreen){
+            ProfileScreen()
+        }
+
     }
 }

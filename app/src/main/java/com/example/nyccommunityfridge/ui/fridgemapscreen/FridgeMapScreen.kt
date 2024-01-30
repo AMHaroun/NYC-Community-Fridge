@@ -7,6 +7,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
@@ -22,6 +26,9 @@ import com.example.nyccommunityfridge.viewmodels.FridgeMapScreenUiState
 import com.example.nyccommunityfridge.viewmodels.FridgeMapScreenViewmodel
 import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
+import com.google.firebase.Firebase
+import com.google.firebase.auth.auth
+import com.google.firebase.auth.ktx.auth
 import com.google.maps.android.compose.GoogleMap
 import com.google.maps.android.compose.Marker
 import com.google.maps.android.compose.MarkerState
@@ -33,6 +40,7 @@ fun FridgeMapScreen(
     navController: NavController = rememberNavController(),
     modifier: Modifier = Modifier
 ){
+    var user by remember{ mutableStateOf(Firebase.auth.currentUser)}
 
     val uiState = viewModel.uiState
 
@@ -75,7 +83,13 @@ fun FridgeMapScreen(
                 .align(Alignment.TopEnd)
                 .size(48.dp)
                 .padding(top = 16.dp, end = 16.dp)
-                .clickable { navController.navigate(route = NavigationStrings.loginScreen) }
+                .clickable {
+                    if(user == null) {
+                        navController.navigate(route = NavigationStrings.loginScreen)
+                    } else {
+                        navController.navigate(route = NavigationStrings.profileScreen)
+                    }
+                }
         )
 
         BottomSheet(
