@@ -31,7 +31,8 @@ fun LoginScreen(
     modifier: Modifier = Modifier
 ){
     Column(
-        modifier = modifier.fillMaxSize(),
+        modifier = modifier.fillMaxSize()
+            .background(MaterialTheme.colorScheme.primary),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
@@ -82,8 +83,6 @@ fun LoginScreen(
 @Composable
 fun LoginScreenPreview(){
     NYCCommunityFridgeTheme {
-        LoginScreen(
-            modifier = Modifier.background(MaterialTheme.colorScheme.primary)
-        )
+        LoginScreen()
     }
 }
