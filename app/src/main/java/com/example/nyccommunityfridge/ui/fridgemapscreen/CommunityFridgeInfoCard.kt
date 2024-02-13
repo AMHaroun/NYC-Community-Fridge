@@ -4,8 +4,10 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -23,7 +25,12 @@ fun CommunityFridgeInfoCard(
     modifier: Modifier = Modifier,
     communityFridgeAddress: String
 ){
-    Card(modifier = modifier.fillMaxWidth()) {
+    Card(
+        modifier = modifier
+        .fillMaxWidth()
+        .height(80.dp),
+        elevation = CardDefaults.cardElevation(24.dp)
+    ) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -50,6 +57,6 @@ fun CommunityFridgeInfoCard(
 @Composable
 fun CommunityFridgeInfoCardPreview(){
     NYCCommunityFridgeTheme {
-        CommunityFridgeInfoCard(communityFridgeAddress = "1234-27 1039th Street Brooklyn New York")
+        CommunityFridgeInfoCard(communityFridgeAddress = "8412 97th Ave Queens, NY")
     }
 }
