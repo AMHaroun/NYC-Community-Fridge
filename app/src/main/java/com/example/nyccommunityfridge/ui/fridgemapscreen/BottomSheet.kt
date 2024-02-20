@@ -4,6 +4,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.BottomSheetDefaults
 import androidx.compose.material3.BottomSheetScaffold
@@ -42,15 +43,15 @@ fun BottomSheet(
                     modifier = Modifier.padding(16.dp)
                 )
 
-                //TODO: (Change to Lazy List)
-                Column {
-
-                    CommunityFridgeInfoCard(
-                        communityFridgeAddress = nearestCommunityFridgeAddress,
-                        modifier = Modifier
-                            .clickable { goToNearestCommunityFridge() }
-                            .padding(horizontal = 16.dp)
-                    )
+                LazyColumn{
+                    items(1) {
+                        CommunityFridgeInfoCard(
+                            communityFridgeAddress = nearestCommunityFridgeAddress,
+                            modifier = Modifier
+                                .clickable { goToNearestCommunityFridge() }
+                                .padding(horizontal = 16.dp)
+                        )
+                    }
                 }
             }
         },
